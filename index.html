@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#0a0a1a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="description" content="Deep-Verify: Yapay Zekâ Destekli Akademik Kaynak Doğrulama Sistemi. Akademik metinlerdeki kaynakları otomatik doğrulayın.">
+  <title>Deep-Verify | Akademik Kaynak Doğrulama</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔬</text></svg>">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="top-header-logo">
+        <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="url(#hg)" stroke-width="2"/><path d="M9 14l3 3 7-7" stroke="url(#hg)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="hg" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#9680ff"/><stop offset="1" stop-color="#00B894"/></linearGradient></defs></svg>
+        <span class="top-header-title">Deep-Verify</span>
+      </div>
+    </header>
+
+    <!-- ═══════ HOME PAGE ═══════ -->
+    <main id="page-home" class="page active">
+      <div class="hero">
+        <div class="hero-icon">🔬</div>
+        <h2>Akademik Kaynak<br><span class="text-gradient">Doğrulama Sistemi</span></h2>
+        <p>Yapay zekâ destekli sistem ile akademik metinlerinizdeki kaynakları otomatik olarak doğrulayın</p>
+      </div>
+
+      <div class="section">
+        <button class="btn btn-primary btn-lg btn-block" onclick="App.navigate('verify')" id="btn-start-verify">
+          🚀 Doğrulamayı Başlat
+        </button>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <h4 class="section-title">📊 İstatistikler</h4>
+        </div>
+        <div class="quick-stats" id="home-stats"></div>
+      </div>
+
+      <div class="section">
+        <div class="feature-grid stagger-children">
+          <div class="card">
+            <div class="card-icon primary">🔗</div>
+            <h4 style="font-size:var(--font-size-sm);margin-top:var(--space-2)">DOI Doğrulama</h4>
+            <p style="font-size:var(--font-size-xs);margin-top:var(--space-1)">CrossRef ile anlık kontrol</p>
+          </div>
+          <div class="card">
+            <div class="card-icon success">👤</div>
+            <h4 style="font-size:var(--font-size-sm);margin-top:var(--space-2)">Yazar Kontrolü</h4>
+            <p style="font-size:var(--font-size-xs);margin-top:var(--space-1)">Yazar bilgisi eşleştirme</p>
+          </div>
+          <div class="card">
+            <div class="card-icon warning">📅</div>
+            <h4 style="font-size:var(--font-size-sm);margin-top:var(--space-2)">Yıl Doğrulama</h4>
+            <p style="font-size:var(--font-size-xs);margin-top:var(--space-1)">Yayın tarihi kontrolü</p>
+          </div>
+          <div class="card">
+            <div class="card-icon danger">📊</div>
+            <h4 style="font-size:var(--font-size-sm);margin-top:var(--space-2)">Güven Skoru</h4>
+            <p style="font-size:var(--font-size-xs);margin-top:var(--space-1)">Detaylı güvenilirlik raporu</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <h4 class="section-title">🕐 Son Taramalar</h4>
+          <button class="section-action" onclick="App.navigate('history')">Tümünü Gör</button>
+        </div>
+        <div id="home-recent"></div>
+      </div>
+    </main>
+
+    <!-- ═══════ VERIFY PAGE ═══════ -->
+    <main id="page-verify" class="page">
+      <div id="verify-content">
+        <div class="section">
+          <h3 style="margin-bottom:var(--space-1)">📝 Metin Girişi</h3>
+          <p style="font-size:var(--font-size-sm);margin-bottom:var(--space-4)">Kaynakça bölümü içeren akademik metninizi yapıştırın</p>
+          <div class="input-group">
+            <textarea id="verify-input" class="textarea" placeholder="Akademik metninizi buraya yapıştırın...&#10;&#10;Örnek:&#10;[1] Vaswani, A. (2017). Attention is all you need...&#10;[2] Devlin, J. (2019). BERT: Pre-training of..." rows="8"></textarea>
+          </div>
+        </div>
+
+        <div class="section">
+          <button class="btn btn-primary btn-lg btn-block" onclick="App.startVerification()" id="btn-verify">
+            🔍 Kaynakları Doğrula
+          </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section">
+          <button class="btn btn-secondary btn-block" onclick="App.loadSampleText()" id="btn-sample">
+            📄 Örnek Metin Yükle
+          </button>
+        </div>
+
+        <div class="section">
+          <div class="card" style="text-align:center">
+            <p style="font-size:var(--font-size-xs);color:var(--text-tertiary)">
+              💡 Sistem APA, IEEE ve numaralı kaynak formatlarını destekler.
+              Kaynaklar CrossRef ve OpenAlex API'leri üzerinden doğrulanır.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div id="verify-loading" class="loading-screen" style="display:none">
+        <div class="spinner spinner-lg"></div>
+        <div>
+          <div class="loading-text" id="loading-progress-text">Kaynaklar ayrıştırılıyor...</div>
+          <div id="loading-count" style="font-size:var(--font-size-xs);color:var(--text-tertiary);text-align:center;margin-top:var(--space-1)"></div>
+        </div>
+        <div class="progress-bar" style="max-width:280px;width:100%">
+          <div class="progress-bar-fill" id="loading-bar-fill" style="width:0%;background:var(--primary-400)"></div>
+        </div>
+        <div class="loading-steps">
+          <div class="loading-step pending"><span class="loading-step-icon">○</span> Kaynaklar ayrıştırılıyor</div>
+          <div class="loading-step pending"><span class="loading-step-icon">○</span> API üzerinden doğrulanıyor</div>
+          <div class="loading-step pending"><span class="loading-step-icon">○</span> Rapor oluşturuluyor</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ═══════ RESULTS PAGE ═══════ -->
+    <main id="page-results" class="page">
+      <div class="results-overview">
+        <h3 style="margin-bottom:var(--space-4)">Doğrulama Sonuçları</h3>
+        <div id="results-ring"></div>
+        <div class="results-stats">
+          <div class="card">
+            <div class="stat">
+              <div class="stat-value text-success" id="results-verified">0</div>
+              <div class="stat-label">Doğrulanmış</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="stat">
+              <div class="stat-value text-warning" id="results-partial">0</div>
+              <div class="stat-label">Kısmi</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="stat">
+              <div class="stat-value text-danger" id="results-notfound">0</div>
+              <div class="stat-label">Bulunamadı</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-header">
+          <h4 class="section-title">Kaynak Detayları</h4>
+          <button class="btn btn-secondary" onclick="App.exportResults()" style="font-size:var(--font-size-xs);padding:var(--space-2) var(--space-3)">📥 Dışa Aktar</button>
+        </div>
+        <div id="results-list"></div>
+      </div>
+
+      <div class="section">
+        <button class="btn btn-primary btn-block" onclick="App.navigate('verify')">
+          🔄 Yeni Doğrulama
+        </button>
+      </div>
+    </main>
+
+    <!-- ═══════ HISTORY PAGE ═══════ -->
+    <main id="page-history" class="page">
+      <div class="section">
+        <div class="section-header">
+          <h3 class="section-title">📋 Geçmiş</h3>
+          <button class="btn btn-secondary" onclick="App.clearHistory()" style="font-size:var(--font-size-xs);padding:var(--space-2) var(--space-3)">🗑 Temizle</button>
+        </div>
+        <div id="history-list"></div>
+      </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-page="home" id="nav-home">
+        <span class="nav-item-icon">🏠</span>
+        <span class="nav-item-label">Ana Sayfa</span>
+      </button>
+      <button class="nav-item" data-page="verify" id="nav-verify">
+        <span class="nav-item-icon">📝</span>
+        <span class="nav-item-label">Doğrula</span>
+      </button>
+      <button class="nav-item" data-page="results" id="nav-results">
+        <span class="nav-item-icon">📊</span>
+        <span class="nav-item-label">Sonuçlar</span>
+      </button>
+      <button class="nav-item" data-page="history" id="nav-history">
+        <span class="nav-item-icon">📋</span>
+        <span class="nav-item-label">Geçmiş</span>
+      </button>
+    </nav>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/parser.js"></script>
+  <script src="js/verifier.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

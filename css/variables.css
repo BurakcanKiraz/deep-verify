@@ -1,0 +1,141 @@
+/* ============================================
+   Deep-Verify Design System — CSS Variables
+   ============================================ */
+
+:root {
+  /* ── Primary Palette ── */
+  --primary-50: #f0edff;
+  --primary-100: #d9d1ff;
+  --primary-200: #b8a9ff;
+  --primary-300: #9680ff;
+  --primary-400: #7c63f7;
+  --primary-500: #6C5CE7;
+  --primary-600: #5a48d1;
+  --primary-700: #4835b5;
+  --primary-800: #37259a;
+  --primary-900: #271780;
+
+  /* ── Status Colors ── */
+  --success-50: #e6fbf4;
+  --success-100: #b3f2de;
+  --success-400: #00d6a1;
+  --success-500: #00B894;
+  --success-600: #009a7b;
+  --success-700: #007d63;
+
+  --warning-50: #fff9e6;
+  --warning-100: #fef0c3;
+  --warning-400: #fdd76e;
+  --warning-500: #FDCB6E;
+  --warning-600: #e5b44e;
+
+  --danger-50: #fff0f0;
+  --danger-100: #ffd4d4;
+  --danger-400: #ff8585;
+  --danger-500: #FF6B6B;
+  --danger-600: #e55252;
+  --danger-700: #cc3a3a;
+
+  /* ── Neutral Palette ── */
+  --neutral-50: #f8f9fc;
+  --neutral-100: #eef0f6;
+  --neutral-200: #dde1ec;
+  --neutral-300: #c4c9d9;
+  --neutral-400: #9da3b8;
+  --neutral-500: #727994;
+  --neutral-600: #555c73;
+  --neutral-700: #3d4259;
+  --neutral-800: #282d42;
+  --neutral-900: #1a1e32;
+  --neutral-950: #0F0F23;
+
+  /* ── Background & Surface ── */
+  --bg-primary: #0a0a1a;
+  --bg-secondary: #0F0F23;
+  --bg-surface: #181830;
+  --bg-surface-2: #222244;
+  --bg-surface-3: #2a2a52;
+  --bg-overlay: rgba(10, 10, 26, 0.85);
+
+  /* ── Glass Effect ── */
+  --glass-bg: rgba(108, 92, 231, 0.08);
+  --glass-border: rgba(108, 92, 231, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-blur: blur(20px);
+
+  /* ── Text ── */
+  --text-primary: #f0f0ff;
+  --text-secondary: #a0a4c0;
+  --text-tertiary: #6b7099;
+  --text-inverse: #0F0F23;
+
+  /* ── Typography ── */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 0.6875rem;   /* 11px */
+  --font-size-sm: 0.8125rem;   /* 13px */
+  --font-size-base: 0.9375rem; /* 15px */
+  --font-size-md: 1.0625rem;   /* 17px */
+  --font-size-lg: 1.25rem;     /* 20px */
+  --font-size-xl: 1.5rem;      /* 24px */
+  --font-size-2xl: 1.875rem;   /* 30px */
+  --font-size-3xl: 2.25rem;    /* 36px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  /* ── Spacing ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ── Border Radius ── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.4);
+  --shadow-glow-primary: 0 0 30px rgba(108, 92, 231, 0.3);
+  --shadow-glow-success: 0 0 20px rgba(0, 184, 148, 0.3);
+  --shadow-glow-danger: 0 0 20px rgba(255, 107, 107, 0.3);
+
+  /* ── Transitions ── */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Z-Index ── */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-backdrop: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-nav: 600;
+
+  /* ── Layout ── */
+  --nav-height: 3.75rem;
+  --bottom-nav-height: 4.5rem;
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --max-width: 480px;
+}
