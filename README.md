@@ -1,25 +1,29 @@
-# Deep Verify 🔍
-
-## Proje Hakkında
-
-Günümüzde üretici yapay zekâ (Generative AI) ve gelişmiş düzenleme araçlarının hızla yaygınlaşması, sahte veya manipüle edilmiş medya içeriklerinin gerçeklerinden ayırt edilmesini giderek zorlaştırmaktadır. **Deep Verify**, bu bilgi kirliliği ve dijital sahtecilikle mücadele etmek amacıyla geliştirilmiş yapay zekâ destekli bir doğrulama ve analiz projesidir.
-
-Projenin temel amacı; paylaşılan dijital materyallerin (görsel, video veya metin) orijinal olup olmadığını, üzerinde sonradan bir oynama yapılıp yapılmadığını ya da tamamen sentetik yöntemlerle üretilip üretilmediğini derinlemesine analiz etmektir.
+# Deep-Verify 📚🔍
+> Yapay Zekâ Destekli Akademik Kaynak ve Referans Doğrulayıcı
 
 ---
 
-## Nasıl Çalışır ve Neleri İnceler?
+## Proje Hakkında
 
-Deep Verify, tek bir yüzeysel kontrolden ziyade çok katmanlı bir inceleme mimarisi sunar:
+Akademik araştırmalarda ve bilimsel yayın süreçlerinde doğru kaynak gösterimi bilginin güvenilirliği için kritik öneme sahiptir. Özellikle üretici yapay zekâ araçlarının yaygınlaşmasıyla birlikte akademik metinlerde var olmayan "halüsinasyon" kaynaklar, hatalı DOI eşleşmeleri ve biçimsel referans kusurları sıkça karşılaşılan bir sorun haline gelmiştir.
 
-* **Piksel ve Frekans Analizi:** Gözle fark edilemeyen sıkıştırma kalıntılarını, yapay geçişleri ve piksel seviyesindeki anormallikleri tespit eder.
-* **Sentetik Parmak İzi Tespiti:** Derin öğrenme tabanlı üretim modellerinin (GAN, Difüzyon vb.) arkalarında bıraktığı karakteristik izleri arar.
-* **Tutarlılık ve Güvenilirlik Skoru:** Yürütülen analizler sonucunda içeriğe yönelik şeffaf bir güven puanı (confidence score) üretir ve manipülasyon şüphesi taşıyan alanları işaretler.
+**Deep-Verify**, akademik makalelerde ve araştırma raporlarında yer alan kaynakçaların doğruluğunu, geçerliliğini ve orijinalliğini denetlemek amacıyla geliştirilmiş yapay zekâ destekli bir doğrulama platformudur. Metin içerisindeki atıflar ile kaynakça listesini karşılaştırır, atıfta bulunulan yayınların gerçekliğini küresel akademik veri tabanları ve doğal dil işleme (NLP) yöntemleriyle analiz eder.
+
+---
+
+## Neyi İnceler ve Nasıl Çalışır?
+
+Deep-Verify, yüklenen akademik metinleri çok katmanlı bir analiz sürecinden geçirir:
+
+* **Sahte / Hayali Kaynak (Hallucination) Tespiti:** Yapay zekâ tarafından uydurulan, gerçekte literatürde karşılığı bulunmayan referansları ve makale başlıklarını tespit eder.
+* **Metin İçi Atıf ve Kaynakça Uyumu:** Metin içerisinde geçen yazar-yıl veya numaralandırılmış atıfların kaynakça bölümündeki girdilerle birebir eşleşip eşleşmediğini denetler.
+* **DOI ve Metadata Doğrulaması:** Belirtilen DOI numaralarının, yazar adlarının, yayın yıllarının ve dergi bilgilerinin resmi akademik indekslerle uyuşup uyuşmadığını kontrol eder.
+* **Format ve Standart Analizi:** APA, IEEE, MLA veya Harvard gibi yaygın akademik yazım kurallarına uygunluğu kontrol ederek eksik ya da hatalı biçimlendirmeleri raporlar.
 
 ---
 
 ## Çözdüğü Temel Sorunlar
 
-* **Dezenformasyon ve Sahte Haber:** Sosyal medyada ve haber kaynaklarında hızla yayılan yanıltıcı içeriklerin erken aşamada teşhis edilmesi.
-* **Kimlik ve Medya Güvenliği:** Dijital kimlik doğrulama süreçlerinde karşılaşılan sahte profil, yüz değiştirme (deepfake) veya manipüle edilmiş belge girişimlerinin önüne geçilmesi.
-* **Şeffaf Doğrulama İhtiyacı:** Son kullanıcılar ve araştırmacılar için anlaşılır, hızlı ve güvenilir bir doğrulama referansı sunulması.
+* **Akademik Dürüstlük ve Güven:** Hakem değerlendirme ve tez teslim süreçleri öncesinde kaynakça hatalarının önüne geçerek intihal veya sahte referans risklerini ortadan kaldırır.
+* **Zaman Tasarrufu:** Onlarca hatta yüzlerce kaynaktan oluşan literatür listelerinin manuel olarak taranması ve doğrulanması sürecini otomatikleştirir.
+* **Yapay Zekâ Kaynaklı Halüsinasyon Kontrolü:** Üretici yapay zekâ modelleriyle hazırlanan araştırma taslaklarındaki tutarsız ve uydurma referansları güvenilir bir süzgeçten geçirir.
